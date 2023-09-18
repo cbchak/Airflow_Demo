@@ -1,0 +1,27 @@
+[2023-09-08T05:29:34.800+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: local_ingestion_dag.ingest scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2023-09-08T05:29:34.804+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: local_ingestion_dag.ingest scheduled__2023-02-01T00:00:00+00:00 [queued]>
+[2023-09-08T05:29:34.805+0000] {taskinstance.py:1361} INFO - Starting attempt 3 of 3
+[2023-09-08T05:29:34.810+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): ingest> on 2023-02-01 00:00:00+00:00
+[2023-09-08T05:29:34.815+0000] {standard_task_runner.py:57} INFO - Started process 64 to run task
+[2023-09-08T05:29:34.817+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'local_ingestion_dag', 'ingest', 'scheduled__2023-02-01T00:00:00+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_localdb_dag.py', '--cfg-path', '/tmp/tmp02yrhclp']
+[2023-09-08T05:29:34.820+0000] {standard_task_runner.py:85} INFO - Job 89: Subtask ingest
+[2023-09-08T05:29:34.852+0000] {task_command.py:415} INFO - Running <TaskInstance: local_ingestion_dag.ingest scheduled__2023-02-01T00:00:00+00:00 [running]> on host e851890a9a7f
+[2023-09-08T05:29:34.882+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:206: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(key, self._deprecation_replacements[key]))
+
+[2023-09-08T05:29:35.014+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='local_ingestion_dag' AIRFLOW_CTX_TASK_ID='ingest' AIRFLOW_CTX_EXECUTION_DATE='2023-02-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-02-01T00:00:00+00:00'
+[2023-09-08T05:29:35.015+0000] {logging_mixin.py:151} INFO - yellow_taxi_2023_02 /opt/***/output_2023-02.parquet 2023-02
+[2023-09-08T05:29:35.035+0000] {logging_mixin.py:151} INFO - connection established successfully, inserting data...
+[2023-09-08T05:29:35.610+0000] {logging_mixin.py:151} INFO -    VendorID tpep_pickup_datetime  ... congestion_surcharge  Airport_fee
+0         1  2023-02-01 00:32:53  ...                  2.5         0.00
+1         2  2023-02-01 00:35:16  ...                  0.0         0.00
+2         2  2023-02-01 00:35:16  ...                  0.0         0.00
+3         1  2023-02-01 00:29:33  ...                  0.0         1.25
+4         2  2023-02-01 00:12:28  ...                  2.5         0.00
+
+[5 rows x 19 columns]
+[2023-09-08T05:29:35.744+0000] {logging_mixin.py:151} INFO - inserted the data, took 0.709 second
+[2023-09-08T05:29:35.751+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-09-08T05:29:35.761+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=local_ingestion_dag, task_id=ingest, execution_date=20230201T000000, start_date=20230908T052934, end_date=20230908T052935
+[2023-09-08T05:29:35.839+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-09-08T05:29:35.852+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
